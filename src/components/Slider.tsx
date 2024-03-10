@@ -15,7 +15,7 @@ const Slider: React.FC<SliderProps> = ({ name, setValueState }) => {
   };
 
   return (
-    <div className='w-full flex justify-center items-center gap-3 h-[100px] border-[1px] border-[gray]'>
+    <div className='w-full flex justify-center items-center gap-3 h-[40px] border-[1px] border-[gray]'>
       <p className='capitalize'>{name}</p>
       <input
         type='range'

@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import Slider from './Slider';
 
-const EditGenerator = () => {
-  const [{}, setState] = useState({});
+interface EditGeneratorProps {
+  isDarkMode: boolean;
+}
+
+const EditGenerator: React.FC<EditGeneratorProps> = ({ isDarkMode }) => {
+  const [state, setState] = useState({});
+
   return (
-    <div className='w-full w-[30%] h-full border-[1px] ml-3 border-[gray] p-1'>
-      <h3>Edit Options</h3>
+    <div
+      className={`w-[30%] h-full border-[1px] p-1 ${
+        isDarkMode ? 'border-gray bg-[black] text-white' : 'border-black'
+      }`}
+    >
+      <h3 style={{ color: isDarkMode ? '#fff' : '#000' }}>Edit Options</h3>
       <Slider name='height' setValueState={setState} />
     </div>
   );
 };
 
-export default EditGenerator;
+export default memo(EditGenerator);
